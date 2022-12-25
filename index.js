@@ -24,7 +24,7 @@ const io = require("socket.io")(server, {
   },
 });
 
-app.get("/", (req, res) => res.send("Welcome world !!!"));
+app.get("/", (req, res) => res.send("Welcome worl✋✋🌐"));
 app.get("/rooms", validateToken, (req, res) => {
   try {
     res.json(rooms);
