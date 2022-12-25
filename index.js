@@ -21,11 +21,10 @@ const io = require("socket.io")(server, {
   cors: {
     origin: "http://localhost:3000",
     methods: ["GET", "POST"],
-    credentials: true,
   },
 });
 
-app.get("/", (req, res) => res.send("Welcome world✋✋🌐"));
+app.get("/", (req, res) => res.send("Welcome world !!!"));
 app.get("/rooms", validateToken, (req, res) => {
   try {
     res.json(rooms);
