@@ -12,16 +12,17 @@ const rooms = ["general", "tech", "finance", "crypto"];
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-  })
-);
+app.use(cors());
 
 app.use("/users", userRouter);
 
 const server = require("http").createServer(app);
-const io = require("socket.io")(server);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
 
 app.get("/", (req, res) => res.send("Welcome world !!!"));
 app.get("/rooms", validateToken, (req, res) => {
